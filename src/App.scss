@@ -1,0 +1,48 @@
+.App {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-family: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 100px;
+  display: block;
+  margin: 10px auto;
+}
+
+.container {
+  width: 1024px;
+  margin: 0px auto;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  li {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+ul.menu {
+  li {
+    display: inline-block;
+  }
+}
