@@ -16,6 +16,9 @@
 .container {
   width: 1024px;
   margin: 0px auto;
+  &.full {
+    min-height: 100vh;
+  }
 }
 
 .clearfix::after {
@@ -24,7 +27,7 @@
   display: table;
 }
 
-h1 {
+h1, p {
   text-align: center;
 }
 
@@ -34,6 +37,7 @@ form {
 
 ul {
   list-style: none;
+  padding: 0;
   li {
     border: 1px solid #ccc;
     padding: 20px;

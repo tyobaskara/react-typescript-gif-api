@@ -1,0 +1,8 @@
+ul.gif-list {
+  > li {
+    img {
+      height: 250px;
+      object-fit: contain;
+    }
+  }
+}

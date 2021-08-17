@@ -1,24 +1,43 @@
 import React, { FC, useContext } from 'react';
-import SearchResultList from '../../components/search-result-list/search-result-list.component';
+import GifList from '../../components/gif-list/gif-list.component';
+import GifListPagination, { GifListPaginationContext } from '../../contexts/gif-list-pagination/gif-list-pagination.component';
 import SearchForm, { SearchContext } from '../../contexts/search-form/search-form.component';
 
-const SearchResult: FC = () => {
-  const result = useContext(SearchContext);
+const GifListComponent: FC = () => {
+  // can't call useContext in Home bcause GifList Context rendered inside it
+  const result = useContext(SearchContext); 
+  const { offset, setOffset } = useContext(GifListPaginationContext);
 
   return (
-    <SearchResultList
-      result={result}
+    <GifList
+      list={result}
+      limit={10}
+      offset={offset}
+      setOffset={setOffset}
     />
   );
 };
 
-const Home: FC = () => (
-  <div className='container'>
-    <h1>Search</h1>
+const SearchFormComponent: FC = () => {
+  const { offset, setOffset } = useContext(GifListPaginationContext);
 
-    <SearchForm>
-      <SearchResult />
+  return (
+    <SearchForm
+      offset={offset}
+      setOffset={setOffset}
+    >
+      <GifListComponent />
     </SearchForm>
+  )
+}
+
+const Home: FC = () => (
+  <div className='container full'>
+    <h1>Search GIFs</h1>
+
+    <GifListPagination>
+      <SearchFormComponent />
+    </GifListPagination>
   </div>
 );
 
